@@ -1,0 +1,38 @@
+<html>
+
+<body>
+    <div style="align-content:center">
+        <img src="{% static 'images/otpt.png' %}">
+        <h3>Length of Panel: 8 mm</h3>
+        <h3>Width of Panel: 5 mm</h3>
+        <h3>Angle of Panel: 30 degrees</h3>
+        <h3>Number of Panels: {{cnt}}</h3>
+        <h2>Total Area covered:</h2>
+        <div id="res"></div>
+        <h2>Approximate money saved in 15 years:
+            <h2>
+                <div id="gen"></div>
+                <h3>Source: Ministry of New and Renewable Energy: 1266.5 watt/sq. metre is generated in Maharashtra by solar irradiation</h3>
+                <script>
+                    function area() {
+                        return (8 * 5 * {
+                            {
+                                cnt
+                            }
+                        }) * 10.57 / 4
+                    }
+
+                    function gen() {
+                        return ((8.0 * 5.0 * {
+                            {
+                                cnt
+                            }
+                        }) * 10.57 / 4.0) * (270000.0) / 70.0
+                    }
+                    document.getElementById("res").innerHTML = area() + " sq ft.";
+                    document.getElementById("gen").innerHTML = "Rs. " + gen();
+                </script>
+    </div>
+</body>
+
+</html>

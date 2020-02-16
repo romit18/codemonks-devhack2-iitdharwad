@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <title>CodeMonks-Solar</title>
+    <meta name="viewport" content="initial-scale=1.0">
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.5.16/css/mdb.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <div class="bg"></div>
+    <style>
+        .wrapper {
+            text-align: center;
+        }
+        
+        .button {
+            background-color: #44c767;
+            border-radius: 19px;
+            border: 1px solid #18ab29;
+            display: inline-block;
+            cursor: pointer;
+            color: #ffffff;
+            font-family: Arial;
+            font-size: 17px;
+            padding: 10px 31px;
+            text-decoration: none;
+            text-shadow: 0px 1px 0px #2f6627;
+            margin-top: 10px;
+        }
+        
+        .button:hover {
+            background-color: #5cbf2a;
+        }
+        
+        .button:active {
+            position: relative;
+            top: 1px;
+        }
+        
+        #map {
+            align-self: center;
+            height: 500px;
+            width: 500px;
+            margin-left: 500px;
+            margin-top: 100px;
+        }
+        
+        .para {
+            align-items: center;
+            width: max-content;
+        }
+        
+        .demo {
+            font-family: Georgia, serif;
+            color: #4E443C;
+            text-align: center;
+            width: max-content;
+            font-variant: small-caps;
+            text-transform: none;
+            font-weight: 100;
+            margin-bottom: 0;
+        }
+        
+        #staticImg {
+            align-items: center;
+        }
+    </style>
+    <div>
+        <div id="map"></div>
+    </div>
+    <script>
+        var map;
+
+        function initMap() {
+            map = new google.maps.Map(document.getElementById('map'), {
+                center: {
+                    lat: 18.9818185,
+                    lng: 72.8389619
+                },
+                zoom: 13,
+                mapTypeId: 'satellite'
+            });
+        }
+
+        function getCoord() {
+            var c = map.getCenter()
+            var zoom = map.getZoom()
+            var lat = c.lat()
+            var lng = c.lng()
+
+            document.getElementById("demo").innerHTML = lat + " " + lng + " " + zoom;
+            document.getElementById("staticImg").src = "https://www.mapquestapi.com/staticmap/v5/map?key=xQAwIGi06UykZ5mV2c4KVefYcHq0xTlJ&center=" + lat + "," + lng + "&zoom=" + zoom + "&type=sat&size=500,500";
+
+
+        }
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDgkwQaRBEIIq-NZrOWaJV2HURffUcFEhs&callback=initMap" async defer>
+    </script>
+    <div class="wrapper">
+        <button class="button" onclick="getCoord()">Button</button>
+    </div>
+    <img id="staticImg">
+    <div class="col-md-12 text-center no-repeat">
+        <a href="{{ url_for('uploadImage') }}" class="btn btn-danger btn-rounded">Process Now!</a>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <!-- Popper.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+
+    <!-- Bootstrap -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.min.js"></script>
+
+    <!-- Material Design for Bootstrap -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.5.16/js/mdb.min.js"></script>
+
+    <script>
+        new WOW().init();
+    </script>
+</body>
+
+</html>

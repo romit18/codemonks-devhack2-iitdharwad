@@ -1,0 +1,66 @@
+{% extends "template.html" %} {% block content %}
+<style type="text/css">
+    .coeff {
+        align-self: center;
+        margin-left: 260px;
+    }
+    
+    .coeff1 {
+        align-self: center;
+        margin-left: 0px;
+    }
+    
+    .coeff2 {
+        align-self: center;
+        margin-left: 00px;
+    }
+</style>
+
+<body>
+    <div class="stage" id="stage" style="background-image: url(images/solar-panel-colorful-sky-background-sunlight_39901-62.jpg)">
+
+        <div class="container py-4 fixed-top app-navbar">
+            <nav class="navbar navbar-transparent navbar-padded navbar-toggleable-sm">
+                <button class="navbar-toggler navbar-toggler-right hidden-md-up" type="button" data-target="#stage" data-toggle="stage" data-distance="-250">
+	      <span class="navbar-toggler-icon"></span>
+	    </button>
+        </div>
+
+        <br>
+
+        <br><br>
+        <section id="first-step" class="step content-100">
+            <div class="container">
+                <h1 class="text-center section-heading">Can you go <mark class='mark-style'>Solar Positive</mark>?</h1>
+                <hr class="tall">
+                <div class="margin-top25">
+                    <div class="row">
+
+                        <div class="col-md-12 area step1">
+
+
+                            <div class="right text-center">
+                                {% if val == 1: %}
+                                <hr><br>
+                                <div class="coeff1">
+                                    <!-- <title style="margin-left: ">Upload new File</title> -->
+                                    <h3>Upload new File</h3>
+                                    <br>
+                                </div>
+                                <div class="coeff2">
+                                    <form method=post enctype=multipart/form-data>
+                                        <input type=file name=file>
+                                        <input type=submit value=Upload>
+                                    </form>
+                                    <br>
+                                </div>
+                                <hr> {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+{% endblock content %}

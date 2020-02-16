@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% load staticfiles %}
+
+{% block content %}    
+<div class="bg">
+    
+<div class="container" style="background-image:repeating-linear-gradient(aliceblue,lightblue);width: 600px;" >
+        
+    <h1 style="align-items: center">Upload Image for Solar Prediction</h1>
+<form method = "post" enctype="multipart/form-data" style="align:center"> 
+    {% csrf_token %} 
+    {{ form | crispy }} 
+    <div class="container" style="align-content: center;margin-left: 200px">
+    <button id="processBtn" type="submit" class="btn btn-default" >Upload</button> 
+</form>
+
+</div>
+</div>
+
+<!-- <script>
+    
+        $("#processBtn").click(function(){
+            $.ajax({
+               type:'post',
+               url:'/process_image',
+               cache:false,
+               async:asynchronous,
+               dataType:'image/jpg',
+               success:function(data){
+                console.log(data);
+               } ,
+               error:function(request,status,error){
+                   console.log(error);
+               }
+            });
+        });
+    
+</script> -->
+{% endblock %}
